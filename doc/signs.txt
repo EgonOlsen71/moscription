@@ -1,0 +1,14 @@
+94/1 = Pitchfork: 1 Damage to attacker if attacked, special signs don't apply in this case
+95/2 = Sniper: Choose target (not used)
+96/3 = Gift: When killed, a random new card appears
+97/4 = Weak: The attacking card loses one attack power
+98/5 = Wings: Flying unit, can't attack water units but deals direct damage instead
+99/6 = Ocean: Water unit, can't attack flying units but deals direct damage instead
+100/7 = Dual strike: Strikes left and right
+101/8 = Triple strike: Strike left, center and right
+102/9 = Recycle: The card returns into your deck after dying
+103/10 = Storm arm: Pushes all cards to the right
+104/11 = Storm arm: Pushes all cards to the left
+105/12 = Death: Card dies after one attack
+106/13 = Blood: Gives 3 blood when destroyed
+108/14 = Bones: Gives 3 bones when killed

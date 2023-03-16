@@ -1,0 +1,9 @@
+moscription is a deck-building card game for one player.
+the goal is to deal direct damage to your opponent, the computer player.
+a player wins once he or she has dealt 8 points more damage to the opponent than the opponent has to him/her.
+The damage balance is shown by a red/green bar in the lower part of the screen.|
+each card has an attack value ranging from 0 to x. direct damage is dealt only if there is
+no opposing card on the board in the direction of the attack or if the defense value of the opposing
+card is lower than the value of the attack. otherwise, the damage is dealt to the attacked card
+instead potentially damaging or killing it.
+

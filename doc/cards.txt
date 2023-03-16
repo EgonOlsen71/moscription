@@ -1,0 +1,48 @@
+0 - hamster / 124
+1 - raven / 132
+2 - wolf / 136
+3 - snake / 140
+4 - rat / 128
+5 - fish / 144
+6 - shark / 148
+7 - eagle / 152
+8 - bear / 156
+9 - scorpion / 160
+10 - bull / 164
+11 - skeleton / 168
+12 - turtoise / 172
+13 - tiger / 176
+14 - beetle / 180
+15 - elk / 184
+16 - maggot / 188
+17 - goat / 192
+18 - corpse / 196
+19 - skunk / 200
+20 - rhino / 204
+21 - frog / 208
+
+
+-------------------------------------------------------------------------------------------------------
+
+"Zufällige" Auswahl:
+
+Vorbereitung: Durch alle Karten 1-19 gehen und jeder Karte einen "Wert" geben:
+
+Wert = Damage * 2 + Hitpoints
+
+Dann über alle Werte gehen, das Minimum berechen und von jedem Wert (Minimum - 1) aubtrahieren.
+
+Davon den "Gegenwert" berechnen:
+
+GW = max(alle Werte) - Wert
+
+Array der Länge "Summe aller Werte" anlegen, füllen mit:
+
+"Wert" Einträge mit Referenz auf die Karte mit diesem Wert.
+
+Auswahl:
+
+Zufällig eine Karte aus dem Array holen. Dadurch haben "gute" Karte eine kleinere Chance als höhere.
+
+
+-------------------------------------------------------------------------------------------------------

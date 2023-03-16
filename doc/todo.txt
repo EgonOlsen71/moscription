@@ -1,0 +1,6 @@
+- Bones wie Blood behandeln und direkt zuweisen - OK
+- Hitpoints der Karten direkt auf dem Board managen - OK
+- Sounds - OK
+- KI - OK
+- Punktezählung - OK
+- Deck auffüllen (Karte vom Computer aussuchen, wenn er noch eine auf dem Board hat) - ok
