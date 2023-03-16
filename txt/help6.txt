@@ -1,0 +1,22 @@
+Signs (7/8)|
+|
+most cards have a sign which modifies them. It's indicated by the symbol in lower middle of the card:
+|
+|
+%126 - deals 1 damage to the attacker|
+%160 - random card appears when killed|
+%161 - attacker loses one attack point|
+%162 - air, can't attack water units|
+%133____deals direct damage instead|
+%163 - water, can't attack air units|
+%133____deals direct damage instead|
+%164 - strikes left and right|
+%165 - strikes left, right and center|
+%166 - returns into your deck when|
+%133____killed|
+%167 - pushes all cards to the right|
+%168 - pushes all cards to the left|
+%169 - dies after attacking another|
+%133____card|
+%170 - gives 3 blood when sacrificed|
+%172 - gives 3 bones then killed

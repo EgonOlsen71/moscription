@@ -1,0 +1,13 @@
+the screen (2/8)|
+|
+the central element of the screen is the board on which the game takes place.
+Each player has 4 columns to place their cards.
+You have one row, the computer player has two rows to place cards on.
+Note that this isn't a game of equal rules for you and the computer!
+The computer has some advantages over you while you have others over him.|
+Below the board, there's your status view. Here, you can see the amount of
+bones and blood that you have (more on that later) as well as the point distribution.|
+your points are being represented by the green bar and the computer's points by the red one.
+
+
+

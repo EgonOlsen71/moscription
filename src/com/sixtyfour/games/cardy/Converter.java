@@ -45,6 +45,7 @@ public class Converter {
 			os.write(toBytes(prefix));
 			txt = clean(txt);
 			int ol = 0;
+
 			do {
 				ol = txt.length();
 				txt = txt.replace("  ", " ");
@@ -87,7 +88,7 @@ public class Converter {
 		txt = txt.replace("ü", "ue").replace("Ü", "Ue");
 		txt = txt.replace("ß", "ss");
 		txt = txt.replace("|", "~\r").replace("\t", " ");
-		txt = txt.replace(",", ";");
+		txt = txt.replace(",", "@").replace('\'', ((char) 94));
 		return txt;
 	}
 

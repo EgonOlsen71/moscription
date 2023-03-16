@@ -1,0 +1,9 @@
+fight! (6/8)|
+|
+when you end the current round, you attack first. Then, the computer attacks and moves.
+Unless a card has a sign that indicates otherwise (more on signs on the next page), it will attack the space in front of it.
+If this space is occupied by a card, the card will be attacked.
+Otherwise, it's a direct attack on either you or your opponent which increases his or your points.
+In case of overkill (i.e. the attacking card has more attack points than needed to kill a card), the overkill will be added to the points as well.
+The game ends once a player has 8 points more than the other or if the computer resigns.|
+a card's attack value is shown on its lower left, the hit points on the lower right.

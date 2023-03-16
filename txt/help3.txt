@@ -1,0 +1,9 @@
+place your card (4/8)|
+|
+move the icon with the displayed keys to place the card on a free spot. Each card costs an amount of either bones
+or blood to be placed. if not enough bones/blood are available to you, you can't place the
+card and have to move it down back into your hand.|
+You obtain bones and blood by either losing cards to your opponent, which only gives you bones, or by sacrificing them yourself, which gives you both. That's the main
+purpose of the hamsters. To sacrifice a card, simply press the number shown on top of it. You can always undo this unless you have
+placed your card, in which case your sacrifice will be permanent in this game. The sacrificed cards return to your deck after the game
+ends though.

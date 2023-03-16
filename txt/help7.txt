@@ -1,0 +1,6 @@
+the game's end (8/8)|
+|
+If the computer wins, all the player's card get returned to the deck and a new game starts on the same skill level.|
+If the player wins, he can choose one of two cards to add to his deck. These cards are either cards that the computer was
+actively playing on the board when the game ended, or (if there aren't enough computer player cards on the board) random ones.
+After choosing a card, the game starts again on a higher skill level.

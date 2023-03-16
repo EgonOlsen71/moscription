@@ -1,0 +1,9 @@
+the screen -continued- (3/8)|
+|
+in the lower right corner, your deck will be shown whenever a new round starts and you have to draw a new card.
+You can either draw a hamster from the left stack or a card from your actual deck from the right stack by pressing
+either 1 or 2. hamsters are avialable in unlimited supply while your deck only contains the number of cards indicated
+by the number printed on the left side of that stack.|
+the new card will be added to your hand, which is shown in the upper right part of the screen. here, you can select
+a card to place on the board. once selected, the card becomes green and a card icon appears below the board that lets you
+select the desired column.
