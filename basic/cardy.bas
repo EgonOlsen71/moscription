@@ -700,7 +700,7 @@
 49900 rem process death
 49905 if sg%<>12 or cb%=-1 then return
 49910 if dr%=-1 then it%=ib%:ib%=i2%:dr%=1:gosub 48300:dr%=-1:ib%=it% 
-49915 pf%(i2%)=-1:gosub 49350:gosub 50600:gosub 47300
+49915 po%=pf%(i2%):pf%(i2%)=-1:gosub 49350:gosub 50600:if po%<>-1 then gosub 47300
 49920 return
  
 50000 rem play *mooop* sound
@@ -1046,4 +1046,5 @@
 63170 rem ck%(1) - cards to select after player has won
 63180 rem ur% - number of rounds in which the AI didn't deal any damage
 63190 rem af%, sc% - if 1, the lesser valuable card will be taken, stored card
-63200 rem vc$%, ic%, ac% - for sound system 
+63200 rem vc$%, ic%, ac% - for sound system
+63210 rem po% - old card on location
