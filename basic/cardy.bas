@@ -859,6 +859,7 @@
 57290 print "{white}x:{light gray}end turn";
 57292 cy%=20:gosub 34500:print "{white}s/w:{light gray}select";
 57294 cy%=21:gosub 34500:print "{white}a/spc:{light gray}place";
+57295 cy%=22:gosub 34500:print "{white}h:{light gray}help";
 57296 return
 
 57300 rem exit with error
