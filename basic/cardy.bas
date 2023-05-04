@@ -818,7 +818,7 @@
 53060 gosub 34700:gosub 34750:gosub 47600:return
 
 54000 rem show help file
-54010 sys 1024:poke 646,7
+54010 sys 1024:poke 646,7:gz%=peek(53269):poke 53269,0
 54020 ox%=cx%:oy%=cy%:for f=0 to 7
 54030 print chr$(147);:cy%=0:cx%=0
 54040 open 2,8,2,"help"+mid$(str$(f),2)+".hlp,s,r"
@@ -831,7 +831,7 @@
 54120 get a$:if a$="x" then 54300
 54130 if a$="c" then next: goto 54300
 54140 goto 54120
-54300 sys 1027:a$="":cx%=ox%:cy%=oy%:return
+54300 sys 1027:poke 53269, gz%:a$="":cx%=ox%:cy%=oy%:return
 
 57000 rem setup card values and evaluation structures
 57010 rr%=1:rp%(0)=-1:mi%=32000:mx%=-32000:for i=1 to cm%-1
