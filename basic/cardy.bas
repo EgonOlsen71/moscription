@@ -1,3 +1,4 @@
+0 rem Moscription by EgonOlsen71/2023
 10 poke 53280,11:poke 53281,0:poke 646,1:poke 650,128
 20 if lf%=0 then lf%=1:load "chars",8,1
 25 if lf%=1 then lf%=21:load "copy",8,1
