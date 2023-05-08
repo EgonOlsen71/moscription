@@ -153,7 +153,7 @@
 33070 cv%(cm%,4)=cb%:cv%(cm%,5)=im%
 33080 cm%=cm%+1:goto 33030
 33090 rem init vars
-33100 hc%=0:bc%=0:ds%=0:r%=0
+33100 hc%=0:bc%=0:ds%=0
 33110 for i=0 to 100:cp%(i)=-1:next
 33130 rem init random deck
 33135 gosub 33600
@@ -594,7 +594,7 @@
 48080 ib%=p0%:io%=ib%
 48090 cb%=pf%(ib%):hp%=hp%(ib%)
 48100 gosub 50200:if cb%=-1 then ov%=ov%+av%:goto 48200
-48110 as%=cv%(cb%,1):gosub 49500:gosub 49900:hp%=hp%-av%
+48110 as%=cv%(cb%,1):tv%=av%:gosub 49500:gosub 49900:hp%=hp%-av%:av%=tv%
 48120 if hp%<=0 then gosub 49000:ov%=ov%-hp%:goto 48200
 48130 hp%(ib%)=hp%:gosub 49300:cn%=cb%:if av%<>0 then gosub 49470
 48200 ib%=ib%+p2%:if ib%<>io% and ib%<=p1% and hh%>0 then 48090
@@ -813,7 +813,7 @@
 53010 poke 53269,0
 53015 mg%=wn%+3:wt%=3:gosub 50950:gosub 40100:gosub 48400
 53020 s1%=0:s2%=0:ov%=0
-53030 hc%=0:bc%=0:ds%=0:r%=r%+1
+53030 hc%=0:bc%=0:ds%=0
 53040 cs%=0:so%=0:wn%=0
 53050 md%=5:gosub 33600:gosub 33250
 53060 gosub 34700:gosub 34750:gosub 47600:return
@@ -956,11 +956,11 @@
 60230 data -1,0,0,0,0,0
 
 61000 rem debug board setup
-61010 rem pf%(10)=14:hp%(10)=1
-61020 rem pf%(6)=4:hp%(6)=2
-61030 rem xc%=14:yc%=4:cn%=pf%(6):hp%=-1:gosub 30000
-61040 rem xc%=14:yc%=12:cn%=pf%(10):hp%=1:gosub 30000
-61050 rem return
+61010 rem pf%(8)=9:hp%(8)=2
+61020 rem pf%(10)=1:hp%(10)=2:pf%(5)=15:hp%(5)=2
+61030 rem xc%=7:yc%=4:cn%=pf%(5):hp%=-1:gosub 30000
+61040 rem xc%=0:yc%=12:cn%=pf%(8):hp%=-1:gosub 30000
+61050 rem xc%=14:yc%=12:cn%=pf%(10):hp%=-1:gosub 30000:return
 
 
 62800 data "draw a new card first!"
@@ -1012,7 +1012,6 @@
 63026 rem cp%(i) - card pile
 63028 rem pi%, pn% - current and total number of cards on pile
 63030 rem bc%, hc% - number of bones / blood drops
-63032 rem r% - round
 63034 rem ii%, i2%, i3%, i4%, i5%, p0%, p1%, p2%, p3%, p4%, io%, ib%, it%, ir%, x1%, y1%, dz% - temp. vars
 63036 rem dc% - color to render the card in
 63038 rem md% - mode, 0: draw card from stack, 1: select card, 2: place card
@@ -1050,3 +1049,4 @@
 63190 rem af%, sc% - if 1, the lesser valuable card will be taken, stored card
 63200 rem vc$%, ic%, ac% - for sound system
 63210 rem po% - old card on location
+63220 rem tv% - temp. storage of av%
