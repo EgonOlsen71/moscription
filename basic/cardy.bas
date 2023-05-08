@@ -784,7 +784,8 @@
 51790 ib%=ib%-dr%:gosub 49330:gosub 47200
 51800 ib%=i3:gosub 49330:xc%=cx%:yc%=cy%:hp%=hp%(ib%):cn%=pf%(ib%):gosub 30000
 51810 next:ib%=ic:gosub 49330:gosub 47200:pf%(ib%)=-1
-51820 ic=i2+dr%:return
+51820 if dr%=1 then ic=i2+1
+51830 return
 
 51900 rem "damped" ai card selection
 51910 gosub 57200:sc%=rs%:if af%=1 then gosub 57200:if rs%>sc% then rs%=sc%
