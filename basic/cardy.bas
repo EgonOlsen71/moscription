@@ -813,8 +813,9 @@
 53000 rem end of game
 53010 poke 53269,0
 53015 mg%=wn%+3:wt%=3:gosub 50950:gosub 40100:gosub 48400
-53020 s1%=0:s2%=0:ov%=0
-53030 hc%=0:bc%=0:ds%=0
+53020 s1%=0:s2%=0
+53025 ov%=0:hc%=0
+53030 bc%=0:ds%=0
 53040 cs%=0:so%=0:wn%=0
 53050 md%=5:gosub 33600:gosub 33250
 53060 gosub 34700:gosub 34750:gosub 47600:return
