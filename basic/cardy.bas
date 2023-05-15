@@ -356,7 +356,7 @@
 
 39000 rem evaluate keypresses in mode 0
 39010 if a$=" " or a$="a" or a$="x" or a$="q" then mg%=0: gosub 40000
-39020 if a$="2" then gosub 40500:gosub 39100
+39020 if a$="2" then if pi%>0 then gosub 40500:gosub 39100
 39030 if a$="1" then gosub 41000:gosub 39100
 39035 rem if a$="k" then gosub 61000: rem todo debug, remove
 39040 return
@@ -388,7 +388,7 @@
 40340 gosub 22000:goto 40320
 
 40500 rem deal card from right stack
-40510 if pi%=0 then return
+40510 rem
 40520 cn%=cp%(pi%-1):pi%=pi%-1
 40530 gosub 34750
 40540 gosub 40800
