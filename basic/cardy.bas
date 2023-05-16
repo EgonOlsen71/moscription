@@ -719,16 +719,20 @@
 
 50200 rem play attack sound and animation
 50210 gosub 49350:cy%=8+4*-dr%
-50220 xc%=8*(cx%+3)+20:yc%=8*(cy%+4)+30
+50220 gosub 50350:xc%=xt%:yc%=yt%
 50230 poke 53250,xc%:poke 53251,yc%
 50240 poke 53286,7:poke 53269,2
-50250 gosub 49300:xt%=8*(cx%+3)+20:yt%=8*(cy%+4)+30
+50250 gosub 49300:gosub 50350
 50260 dx=(xt%-xc%)/abs(yt%-yc%):xc=xc%
 50270 gosub 50850:yi%=yc%:ye%=yt%+dr%
 50280 poke 53250,xc:poke 53251,yi%
 50285 gosub 51000:gosub 22000
 50290 xc=xc+dx:yi%=yi%+dr%:if yi%<>ye% then 50280
 50300 poke 53269,0:poke 53286,1:return
+
+50350 rem calculate anim coords
+50360 xt%=8*(cx%+3)+20:yt%=8*(cy%+4)+30
+50370 return
 
 50400 rem play water sound
 50410 at%=1:dd%=1:el%=0:rl%=0:lq%=100:hq%=8
