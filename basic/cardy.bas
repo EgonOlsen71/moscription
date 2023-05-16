@@ -70,19 +70,19 @@
 30001 rem card to render in cn%, hp% contains dynamic hitpoints..or -1. It will be reset after the call
 30005 dc%=1
 30010 if peek(53266)<100 then 30010
-30020 gosub 31600:ss%=xc%+1+40*(yc%+5)
-30150 pp=ss%+40+sa:poke pp,cv%(cn%,0)+48
+30020 gosub 31600:ss%=xc%+1+40*(yc%+6)
+30150 pp=ss%+sa:poke pp,cv%(cn%,0)+48
 30160 rem draw sign
 30162 gosub 30700:if hp%=-1 then hp%=cv%(cn%,2)
 30170 pp=pp+4:poke pp,hp%+48:hp%=-1
 30180 pv%=28:pc%=cv%(cn%,3)
 30190 if cv%(cn%,4)>0 then pv%=37:pc%=cv%(cn%,4):c%=dc%
 30200 if pc%=0 then pc%=1:pv%=32
-30210 po=pp-5*40-4:pp=po+(5-pc%)
+30210 pp=pp-199-pc%
 30220 for pp=pp to pp+pc%-1
 30230 poke pp,pv%:poke pp+ca,c%
 30240 next
-30250 pp=pp+80-3:pv%=cv%(cn%,5)
+30250 pp=pp+77:pv%=cv%(cn%,5)
 30260 poke pp,pv%:poke pp+1,pv%+1
 30270 poke pp+40,pv%+2:poke pp+41,pv%+3
 30280 pp=pp+120
@@ -99,7 +99,7 @@
 30800 rem render half card frame,xc% and yc% populated
 30801 rem card to render in cn%
 30810 gosub 31900
-30820 ss%=xc%+1+40*(yc%+1)
+30820 ss%=xc%+1+40*(yc%+2)
 30960 dc%=1:hp%=-1:gosub 30150
 30970 return
 
