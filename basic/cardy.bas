@@ -110,19 +110,28 @@
 
 31600 rem render card's outline, color in dc%
 31610 cx%=xc%:cy%=yc%:gosub 34500:poke 646,dc%
-31620 print "{117}{99}{99}{99}{99}{99}{105}";
-31630 for i=0 to 5:cy%=cy%+1:gosub 34500:print "{98}     {98}";:next
-31640 cy%=cy%+1:if cy%<25 then gosub 34500:print "{106}{99}{99}{99}{99}{99}{107}";
+31620 gosub 31780:yi%=0
+31630 cy%=cy%+1:gosub 34500:print "{98}     {98}";:yi%=yi%+1:if yi%<6 then 31630
+31640 cy%=cy%+1:if cy%<25 then gosub 34500:gosub 31750
 31650 cy%=cy%-2:gosub 34500
-31660 print "{235}{99}{99}{99}{99}{99}{179}";
+31660 gosub 31700
 31670 return
+
+31700 rem card part 1
+31710 print "{235}{99}{99}{99}{99}{99}{179}";:return
+
+31750 rem card part 2
+31760 print "{106}{99}{99}{99}{99}{99}{107}";:return
+
+31780 rem card part 3
+31790 print "{117}{99}{99}{99}{99}{99}{105}";:return
 
 31900 rem render half card's outline
 31910 cx%=xc%:cy%=yc%:gosub 34500:poke 646,1
 31920 print "{98}     {98}";
-31940 gosub 31990:print "{235}{99}{99}{99}{99}{99}{179}";
+31940 gosub 31990:gosub 31700
 31950 gosub 31990:gosub 34500:print "{98}     {98}";
-31960 gosub 31990:gosub 34500:print"{106}{99}{99}{99}{99}{99}{107}"
+31960 gosub 31990:gosub 34500:gosub 31750
 31970 return
 
 31990 rem next segment
@@ -233,15 +242,13 @@
 35010 yc%=ds%:xc%=33:c%=0:xd%=1:yd%=0
 35015 if ii%<2 then return
 35016 sf%=0:if cs%=ii%-1 then ii%=ii%-1:sf%=1
-35020 cx%=xc%:cy%=yc%:for i=0 to ii%-1
-35030 gosub 34500:poke 646,15
-35040 print "{117}{99}{99}{99}{99}{99}{105}";
-35050 cy%=cy%+1:next
+35020 cx%=xc%:cy%=yc%:yi%=0:poke 646,15
+35030 gosub 34500:gosub 31780
+35050 cy%=cy%+1:yi%=yi%+1:if yi%<ii% then 35030
 35060 if ii%>9 then 35110
-35070 for i=ii% to 9:gosub 34500
-35080 print "       ";:cy%=cy%+1
-35090 next
-35110 yc%=ds%+ii%-1:cn%=cd%(ii%-1):dc%=15:gosub 30010
+35070 gosub 34500:print "       ";:cy%=cy%+1
+35080 yi%=yi%+1:if yi%<10 then 35070
+35110 yi%=ii%-1:yc%=ds%+yi%:cn%=cd%(yi%):dc%=15:gosub 30010
 35120 if sf%=1 then cx%=36:cy%=ds%+cs%+7:gosub 34500:print "    ";
 35130 return
 
@@ -257,13 +264,13 @@
 35610 if md%<1 or md%>2 then return
 35620 gosub 35850:cy%=12:i2%=0
 35630 ii%=pf%(8+i2%):if ii%=-1 then 35650
-35640 cx%=1+(7*i2%):gosub 34500:print right$(str$(i2%+1),1)
+35640 cx%=7*i2%:cx%=cx%+1:gosub 34500:print right$(str$(i2%+1),1)
 35650 i2%=i2%+1:if i2%=4 then return
 35660 goto 35630
 
 35670 rem clear numbers on playfield
 35675 poke 646,1
-35680 cy%=12:for i=0 to 3:if pf%(8+i)<>-1 then cx%=1+(7*i):gosub 34500:print"{99}"
+35680 cy%=12:for i=0 to 3:if pf%(8+i)<>-1 then cx%=7*i:cx%=cx%+1:gosub 34500:print"{99}"
 35685 next:return
 
 35700 rem render numbers on stack
@@ -288,13 +295,14 @@
 35930 for i=19 to 23:cy%=i:gosub 34500:print "{98}{rvson}{230}{230}{230}{rvsoff}";:next
 35940 cy%=24:gosub 34500:print "{98}{rvson}{230}{230}{rvsoff}";:poke sa+999,peek(sa+998)
 35950 ii%=pi%:if ii%>99 then ii%=99
-35960 cx%=37:cy%=24:gosub 34500:poke 646,3:print mid$(str$(ii%),2);:poke 646,1
+35960 cx%=37:cy%=24:gosub 34500:poke 646,3
+35965 nn%=ii%:gosub 53100:print nn$;:poke 646,1
 35970 return
 
 36000 rem wait for a key press
 36020 get a$:gosub 22000:if a$="" then 36040
-36022 if a$="h" then gosub 54000:return
-36025 ky%=asc(a$)
+36022 ky%=asc(a$)
+36025 if ky%=72 then gosub 54000:goto 36040: rem help
 36030 if ky%=13 then a$=" "
 36031 if ky%=157 then a$="a"
 36032 if ky%=29 then a$="d"
@@ -389,7 +397,7 @@
 
 40500 rem deal card from right stack
 40510 rem
-40520 cn%=cp%(pi%-1):pi%=pi%-1
+40520 pi%=pi%-1:cn%=cp%(pi%):
 40530 gosub 34750
 40540 gosub 40800
 40550 cd%(ci%)=cn%
@@ -464,12 +472,12 @@
 
 46200 rem render backside of card
 46210 poke 646,1:cx%=xc%:cy%=yc%
-46220 gosub 34500: print "{117}{99}{99}{99}{99}{99}{105}";
+46220 gosub 34500: gosub 31780
 46230 for i=0 to 5:cy%=cy%+1:gosub 34500
 46240 print "{98}{rvson}{230}{230}{230}{230}{230}{rvsoff}{98}";
 46250 next
 46260 cy%=cy%+1: gosub 34500
-46270 print "{106}{99}{99}{99}{99}{99}{107}";
+46270 gosub 31750
 46280 return
 
 46400 rem calculate amount of blood for turned card
@@ -483,8 +491,9 @@
 
 46500 rem display amount of bones and blood
 46510 poke 646,1
-46530 cx%=0:cy%=22:gosub 34500:print"{37}:"mid$(str$(bc%),2);" "
-46540 cx%=0:cy%=23:gosub 34500:poke 646,2:print"{92}";:poke 646,1:print":"mid$(str$(hc%),2);" "
+46530 cx%=0:cy%=22:gosub 34500:nn%=bc%:gosub 53100:print"{37}:"nn$;" "
+46540 cx%=0:cy%=23:gosub 34500:poke 646,2:print"{92}";:poke 646,1
+46545 nn%=hc%:gosub 53100:print":"nn$;" "
 46550 return
 
 46570 rem render both, blood and bones animation
@@ -531,7 +540,7 @@
 47300 rem clear card from play field with animation
 47310 poke 646,1
 47330 for p=0 to 7:gosub 34500
-47340 if p<7 then print "{117}{99}{99}{99}{99}{99}{105}";
+47340 if p<7 then gosub 31780
 47345 ts=ti
 47346 if ti-ts<=2 then gosub 22000:goto 47346
 47350 gosub 34500:print "{7*space}":cy%=cy%+1:next
@@ -582,7 +591,7 @@
 47920 return 
  
 48000 rem battle, row in rw% (0 or 1), direction in dr% (-1 or 1), returns overkill in ov%
-48010 i2%=rw%*4+4:i3%=i2%+3:rem row start and end
+48010 i2%=rw%*4:i2%=i2%+4:i3%=i2%+3:rem row start and end
 48015 ov%=0:i4%=i2%+4*dr%:i5%=i3%+4*dr%:rem attack row start and end
 48020 cn%=pf%(i2%):hh%=hp%(i2%):if cn%=-1 then 48210
 48022 av%=cv%(cn%,0):sg%=cv%(cn%,1):ib%=i2%+4*dr%: rem ib%=card to attack 
@@ -625,7 +634,7 @@
 49040 pf%(ib%)=-1:return
 
 49300 rem calculate cx%, cy% based on array index (ib%)
-49310 cx%=(ib%-4*int(ib%/4))*7:cy%=8+4*dr%:return
+49310 cx%=(ib%-4*int(ib%/4))*7:cy%=4*dr%:cy%=cy%+8:return
 
 49330 rem calculate cx%, cy% based on array index (ib%) for shifting sign
 49340 gosub 49300:cy%=4:if ib%>7 then cy%=12
@@ -715,10 +724,10 @@
 50240 poke 53286,7:poke 53269,2
 50250 gosub 49300:xt%=8*(cx%+3)+20:yt%=8*(cy%+4)+30
 50260 dx=(xt%-xc%)/abs(yt%-yc%):xc=xc%
-50270 gosub 50850:for y=yc% to yt% step dr%
-50280 poke 53250,xc:poke 53251,y
+50270 gosub 50850:yi%=yc%:ye%=yt%+dr%
+50280 poke 53250,xc:poke 53251,yi%
 50285 gosub 51000:gosub 22000
-50290 xc=xc+dx:next
+50290 xc=xc+dx:yi%=yi%+dr%:if yi%<>ye% then 50280
 50300 poke 53269,0:poke 53286,1:return
 
 50400 rem play water sound
@@ -820,11 +829,14 @@
 53050 md%=5:gosub 33600:gosub 33250
 53060 gosub 34700:gosub 34750:gosub 47600:return
 
+53100 rem convert number (nn%) into string (nn$)
+53110 nn$=mid$(str$(nn%),2):return
+
 54000 rem show help file
 54010 sys 1024:poke 646,7:gz%=peek(53269):poke 53269,0
 54020 ox%=cx%:oy%=cy%:for f=0 to 7
 54030 print chr$(147);:cy%=0:cx%=0
-54040 open 2,8,2,"help"+mid$(str$(f),2)+".hlp,s,r"
+54040 nn%=f:gosub 53100:open 2,8,2,"help"+nn$+".hlp,s,r"
 54050 input#2,li$:if li$="***" then close 2:goto 54100
 54060 if left$(li$,1)="%" then li$=chr$(val(mid$(li$,2,3)))+mid$(li$,5)
 54070 gosub 34500:print li$;:cy%=cy%+1
