@@ -88,9 +88,8 @@
 30280 pp=pp+120
 30290 pv%=cv%(cn%,1)
 30295 if pv%=0 then 30360
-30300 poke pp,pv%+93-(pv%>13):c%=dc%
-30310 if pv%=28 then gosub 30700
-30320 poke pp+ca,c%
+30300 poke pp,pv%+93-(pv%>13)
+30320 poke pp+ca,dc%
 30360 return
 
 30700 rem select red/brown color
@@ -145,16 +144,19 @@
 
 32100 rem clear half card
 32110 cx%=xc%:cy%=yc%:poke 646,1:gosub 34500
-32120 print "       ";
-32140 gosub 31990:print "       ";
-32150 gosub 31990:print "       ";
-32160 gosub 31990:print "       ";
+32120 gosub 32200
+32140 gosub 31990:gosub 32200
+32150 gosub 31990:gosub 32200
+32160 gosub 31990:gosub 32200
 32170 return
+
+32200 rem clear line
+32210 print "       ";:return
 
 33000 rem init structures
 33005 i=rnd(0):print "shuffling...";
 33010 dim cv%(21,5),rp%(21),ro%(21),cd%(9),ct%(9)
-33015 dim cp%(100),pf%(11),hp%(11),rc%(200),ai%(3)
+33015 dim cp%(100),pf%(11),hp%(11),rc%(90),ai%(3)
 33020 cm%=0:s1%=0:s2%=0:al%=0:wn%=0:ww%=8
 33030 read av%,sg%,hp%,ch%,cb%,im%
 33040 if av%=-1 then 33100
@@ -843,12 +845,13 @@
 54060 if left$(li$,1)="%" then li$=chr$(val(mid$(li$,2,3)))+mid$(li$,5)
 54070 gosub 34500:print li$;:cy%=cy%+1
 54080 goto 54050
-54100 cx%=7:cy%=24:gosub 34500
-54110 print "c to continue, x to exit";
+54100 cx%=1:cy%=24:gosub 34500
+54110 print "c to continue, x to exit, 1-8 for page";
 54120 get a$:if a$="x" then 54300
+54125 if a$>"0" then if a$<"9" then f=val(a$)-2:a$="c"
 54130 if a$="c" then next: goto 54300
 54140 goto 54120
-54300 sys 1027:poke 53269, gz%:a$="":cx%=ox%:cy%=oy%:return
+54300 sys 1027:poke 53269,gz%:a$="":cx%=ox%:cy%=oy%:return
 
 57000 rem setup card values and evaluation structures
 57010 rr%=1:rp%(0)=-1:mi%=32000:mx%=-32000:for i=1 to cm%-1
@@ -857,7 +860,7 @@
 57030 rp%(rr%)=ii%:rr%=rr%+1
 57040 next:mx%=1+mx%-mi%:i2%=0
 57050 for i=1 to rr%-1:rp%(i)=rp%(i)-mi%:ro%(i)=mx%-rp%(i):i2%=i2%+ro%(i):next
-57060 i4%=rr%:rr%=i2%:if rr%>200 then 57300
+57060 i4%=rr%:rr%=i2%:if rr%>90 then 57300
 57070 i3%=0:for i=1 to i4%-1:ii%=ro%(i):for p=i3% to i3%+ii%-1:rc%(p)=i:next
 57080 i3%=p:next
 57090 if i3%<>rr% then 57300
