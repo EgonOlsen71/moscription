@@ -680,7 +680,6 @@
 49620 gosub 40300:hp%=hh%:dc%=1:gosub 49470:hp%=it%
 49630 cx%=p3%:cy%=p4%:return
 
-
 49650 rem process gift sign
 49655 if hp%-av%>0 then return
 49660 it%=rnd(1)*cm%:av%=0:cn%=it%
@@ -724,10 +723,10 @@
 50240 poke 53286,7:poke 53269,2
 50250 gosub 49300:gosub 50350
 50260 dx=(xt%-xc%)/abs(yt%-yc%):xc=xc%
-50270 gosub 50850:yi%=yc%:ye%=yt%+dr%
+50270 gosub 50850:yi%=yc%
 50280 poke 53250,xc:poke 53251,yi%
 50285 gosub 51000:gosub 22000
-50290 xc=xc+dx:yi%=yi%+dr%:if yi%<>ye% then 50280
+50290 xc=xc+dx:if yi%<>yt% then yi%=yi%+dr%:goto 50280
 50300 poke 53269,0:poke 53286,1:return
 
 50350 rem calculate anim coords
@@ -736,36 +735,35 @@
 
 50400 rem play water sound
 50410 at%=1:dd%=1:el%=0:rl%=0:lq%=100:hq%=8
-50420 wf%=16:pt%=5:im%=0:gosub 20000:at%=3:hq%=9:gosub 20000
-50430 return
+50420 wf%=16:pt%=5:im%=0:gosub 20000:at%=3:hq%=9:goto 20000
 
 50500 rem play air sound
 50510 at%=10:dd%=1:el%=10:rl%=10:lq%=100:hq%=8
-50520 wf%=128:pt%=2:im%=1:gosub 20000:return
+50520 wf%=128:pt%=2:im%=1:goto 20000
 
 50550 rem play flip sound
 50560 at%=12:dd%=15:el%=0:rl%=0:lq%=100:hq%=2
-50570 wf%=128:pt%=2:im%=0:gosub 20000:return
+50570 wf%=128:pt%=2:im%=0:goto 20000
 
 50600 rem play death sound
 50610 at%=2:dd%=5:el%=15:rl%=8:lq%=100:hq%=5
-50620 wf%=32:pt%=2:im%=1:gosub 20000:return
+50620 wf%=32:pt%=2:im%=1:goto 20000
 
 50700 rem play beep sound
 50710 at%=2:dd%=2:el%=2:rl%=2:lq%=100:hq%=12
-50720 wf%=16:pt%=2:im%=1:gosub 20000:return
+50720 wf%=16:pt%=2:im%=1:goto 20000
 
 50800 rem play recycle sound
 50810 at%=2:dd%=15:el%=3:rl%=6:lq%=100:hq%=6
-50820 wf%=128:pt%=5:im%=0:gosub 20000:return
+50820 wf%=128:pt%=5:im%=0:goto 20000
 
 50850 rem play attack sound
 50860 at%=9:dd%=6:el%=2:rl%=2:lq%=100:hq%=13
-50870 wf%=128:pt%=4:im%=0:gosub 20000:return
+50870 wf%=128:pt%=4:im%=0:goto 20000
 
 50900 rem play card sound
 50910 at%=12:dd%=5:el%=2:rl%=3:lq%=100:hq%=7
-50920 wf%=128:pt%=3:im%=0:gosub 20000:return
+50920 wf%=128:pt%=3:im%=0:goto 20000
 
 50950 rem game over
 50952 at%=7%:dc%=7:el%=0:rl%=0:lq%=180:hq%=6
@@ -773,7 +771,7 @@
 50956 at%=8:dc%=3:el%=0:rl%=0:lq%=180:hq%=8
 50958 wf%=16:pt%=25:im%=0:gosub 20000
 50960 at%=9:dc%=3:el%=0:rl%=0:lq%=180:hq%=7
-50962 wf%=16:pt%=34:im%=0:gosub 20000:return
+50962 wf%=16:pt%=34:im%=0:goto 20000
 
 51000 rem short delay
 51010 if peek(53266)>100 then 51010
@@ -869,8 +867,8 @@
 57210 rs%=rc%(rnd(0)*rr%):return
 
 57250 rem clear message box
-57255 for i=0 to 5:cx%=29:cy%=i+18:gosub 34500
-57260 print "{11*space}";
+57255 cy%=18:cx%=29:for i=0 to 5:gosub 34500
+57260 print "{11*space}";:cy%=cy%+1
 57270 next:return
 
 57280 rem print "end turn"
@@ -905,12 +903,14 @@
 57520 return
 
 58000 rem scroll playfield down
-58010 for i4=0 to 3:cn%=pf%(i4):if cn%=-1 then 58100
-58020 ii=i4+4:cb%=pf%(ii):if cb%<>-1 then 58100
-58030 pf%(ii)=pf%(i4):hp%(ii)=hp%(i4):pf%(i4)=-1
-58040 yc%=0:xc%=i4*7:gosub 32100
-58050 yc%=4:hp%=hp%(ii):gosub 30000
-58100 next:return
+58010 yi%=0
+58015 cn%=pf%(yi%):if cn%=-1 then 58100
+58020 ii%=yi%+4:cb%=pf%(ii%):if cb%<>-1 then 58100
+58030 pf%(ii%)=pf%(yi%):hp%(ii%)=hp%(yi%):pf%(yi%)=-1
+58040 yc%=0:xc%=yi%*7:gosub 32100
+58050 yc%=4:hp%=hp%(ii%):gosub 30000
+58100 yi%=yi%+1:if yi%<4 then 58015
+58110 return
 
 58500 rem init ai skill level settings
 58510 dim sk%(32):for i=0 to 30 step 3 
