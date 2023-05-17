@@ -1,0 +1,33 @@
+Moscription ist ein Einzelspieler-Deck-Building-Kartenspiel.
+
+Dein Ziel ist es, deinem Gegner, dem Computer, direkten Schaden zuzufügen und das Spiel zu gewinnen.
+Die Punkteverteilung wird durch eine rote/grüne Leiste am unteren Bildschirmrand dargestellt.
+Du kannst nur dann direkten Schaden verursachen, wenn keine gegnerische Karte in Angriffsrichtung steht
+oder wenn die Verteidigung der gegnerischen Karte niedriger als dein Angriffswert ist.
+
+Jede Karte in deinem Deck hat einen Angriffswert, der in der unteren linken Ecke angezeigt wird,
+und Lebenspunkte, die in der unteren rechten Ecke angezeigt werden.
+Bis auf den Hamster haben alle Karten spezielle Fähigkeiten, die durch ein "Zeichen" gekennzeichnet sind.
+
+Das Spielfeld besteht aus vier Spalten und drei Reihen.
+Du spielst auf der unteren Reihe, während der Computer die zwei oberen Reihen bespielt.
+
+Um Karten zu platzieren, benötigst du entweder Knochen oder Blut, die in der rechten oberen Ecke jeder Karte angezeigt werden.
+Knochen bleiben von Runde zu Runde erhalten, während Blut am Ende jeder Runde verfällt.
+
+Du kannst Knochen und Blut verdienen, indem du Karten an deinen Gegner verlierst (nur Knochen) oder indem du sie opferst (beids).
+Die aktuellen Knochen- und Blutvorräte werden links am unteren Bildschirmrand angezeigt.
+
+Neue Karten kannst du entweder vom linken Stapel ziehen, der unbegrenzte Hamster bietet, oder aus deinem Deck,
+das eine begrenzte Anzahl von Karten enthält.
+Die neu gezogenen Karten werden zu deiner Hand hinzugefügt, die im oberen rechten Teil des Bildschirms angezeigt wird.
+Du kannst eine oder mehrere Karten aus deiner Hand auswählen und in den Spalten des Spielfelds platzieren.
+
+Um eine Runde zu beenden, führe Angriffe aus und warte auf den Zug des Computers.
+Wenn du keine weiteren Aktionen durchführen kannst, wird die Runde automatisch beendet.
+
+Das Spiel endet, wenn ein Spieler mindestens 8 Punkte mehr als sein Gegner hat oder wenn der Computer aufgibt.
+Im Falle eines Sieges kannst du eine Belohnungskarte auswählen, entweder eine Karte, die der Computer während des
+Spiels verwendet hat oder eine zufällige Karte, wenn keine Computerkarten verfügbar sind.
+
+Danach beginnt das Spiel auf einem höheren Schwierigkeitsgrad.
