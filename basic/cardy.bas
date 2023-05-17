@@ -514,7 +514,7 @@
 46660 poke pp,pv%:poke pp+ca,c%
 46670 i2=i2+dx:i3=i3+dy
 46672 ts=ti:gosub 22000
-46674 if ti-ts=0 then 46674
+46674 if ti=ts then 46674
 46680 poke pp,ch%:poke pp+ca,dc%
 46690 if int(i2+.5)=xe% then if int(i3+.5)=ye% then dc%=dz%:return
 46700 goto 46650
