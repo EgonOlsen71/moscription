@@ -860,7 +860,7 @@
 
 57000 rem setup card values and evaluation structures
 57010 rr%=1:rp%(0)=-1:mi%=32000:mx%=-32000:for i=1 to cm%-1
-57020 ii%=cv%(i,0)*2+cv%(i,2)-4*(cv%(i,1)=3):if ii%<mi% then mi%=ii%
+57020 ii%=cv%(i,0)*2+cv%(i,2)-5*(cv%(i,1)=3):if ii%<mi% then mi%=ii%
 57025 if ii%>mx% then mx%=ii%
 57030 rp%(rr%)=ii%:rr%=rr%+1
 57040 next:mx%=1+mx%-mi%:i2%=0
