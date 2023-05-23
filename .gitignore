@@ -2,5 +2,7 @@
 /build/++cardy.prg.dbg
 /build/++cardy.prg.il
 /build/++cardy.prg.nl
+/build/++cardy.prg-o.il
+/build/++cardy.prg-n.nl
 /out/
 /dev.iml
