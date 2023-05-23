@@ -900,15 +900,21 @@
 57400 rem print scoring, center in cx%, y in cy%,scores in s1%,s2%
 57410 p=cx%+40*cy%+sa:pp=p:poke p,224:poke p+ca,1
 57440 p1%=s1%/4:p2%=s1%-4*p1%:p=p+1:p3%=0
-57450 if p1%>0 then p1%=p1%-1:poke p,224:poke p+ca,5:p=p+1:p3%=p3%+1:goto 57450
-57460 if p2%>0 then poke p,sb%(p2%+2):poke p+ca,5:p=p+1:p3%=p3%+1
+57450 if p1%>0 then p1%=p1%-1:poke p,224:gosub 57600:goto 57450
+57460 if p2%>0 then poke p,sb%(p2%+2):gosub 57600
 57465 if p3%<10 then for p=p to p+10-p3%:poke p,32:next  
 57470 p=pp-1
 57480 p1%=s2%/4:p2%=s2%-4*p1%:p3%=0
-57490 if p1%>0 then p1%=p1%-1:poke p,224:poke p+ca,2:p=p-1:p3%=p3%+1:goto 57490
-57500 if p2%>0 then poke p,sb%(p2%-1):poke p+ca,2:p=p-1:p3%=p3%+1
+57490 if p1%>0 then p1%=p1%-1:poke p,224:gosub 57650:goto 57490
+57500 if p2%>0 then poke p,sb%(p2%-1):gosub 57650
 57510 if p3%<10 then for p=p to p-(10-p3%) step -1:poke p,32:next
 57520 return
+
+57600 rem bar part 1
+57610 poke p+ca,5:p=p+1:p3%=p3%+1:return
+
+57650 rem bar part 2
+57660 poke p+ca,2:p=p-1:p3%=p3%+1:return
 
 58000 rem scroll playfield down
 58010 yi%=0
