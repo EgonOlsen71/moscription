@@ -304,7 +304,8 @@
 36000 rem wait for a key press
 36020 get a$:gosub 22000:if a$="" then 36040
 36022 ky%=asc(a$)
-36025 if ky%=72 then gosub 54000:goto 36040: rem help
+36025 if ky%=72 then gosub 54000: rem help
+36026 if ky%=73 then gosub 51100: rem info
 36030 if ky%=13 then a$=" "
 36031 if ky%=157 then a$="a"
 36032 if ky%=29 then a$="d"
@@ -778,6 +779,10 @@
 51000 rem short delay
 51010 if peek(53266)>100 then 51010
 51020 return
+
+51100 rem system information
+51110 mg$(10)="compiled with mospeed,"+str$(fre(0))+" bytes free!"
+51120 mg%=10:goto 40000
 
 51500 rem push right
 51510 dr%=1:gosub 51700:return
