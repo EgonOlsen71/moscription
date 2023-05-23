@@ -27,7 +27,7 @@ Um eine Runde zu beenden, führe Angriffe aus und warte auf den Zug des Computer
 Wenn du keine weiteren Aktionen durchführen kannst, wird die Runde automatisch beendet.
 
 Das Spiel endet, wenn ein Spieler mindestens 8 Punkte mehr als sein Gegner hat oder wenn der Computer aufgibt.
-Im Falle eines Sieges kannst du eine Belohnungskarte auswählen, entweder eine Karte, die der Computer während des
+Im Falle eines Sieges kannst du eine Belohnungskarte auswählen. Dies ist entweder eine Karte, die der Computer während des
 Spiels verwendet hat oder eine zufällige Karte, wenn keine Computerkarten verfügbar sind.
 
-Danach beginnt das Spiel auf einem höheren Schwierigkeitsgrad.
+Danach beginnt das Spiel auf einem höheren Schwierigkeitsgrad erneut.
