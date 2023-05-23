@@ -15,7 +15,7 @@ Du spielst auf der unteren Reihe, während der Computer die zwei oberen Reihen b
 Um Karten zu platzieren, benötigst du entweder Knochen oder Blut, die in der rechten oberen Ecke jeder Karte angezeigt werden.
 Knochen bleiben von Runde zu Runde erhalten, während Blut am Ende jeder Runde verfällt.
 
-Du kannst Knochen und Blut verdienen, indem du Karten an deinen Gegner verlierst (nur Knochen) oder indem du sie opferst (beids).
+Du kannst Knochen und Blut verdienen, indem du Karten an deinen Gegner verlierst (nur Knochen) oder indem du sie opferst (beides).
 Die aktuellen Knochen- und Blutvorräte werden links am unteren Bildschirmrand angezeigt.
 
 Neue Karten kannst du entweder vom linken Stapel ziehen, der unbegrenzte Hamster bietet, oder aus deinem Deck,
