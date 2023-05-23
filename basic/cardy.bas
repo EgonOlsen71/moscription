@@ -155,7 +155,7 @@
 
 33000 rem init structures
 33005 i=rnd(0):print "shuffling...";
-33010 dim cv%(21,5),rp%(21),ro%(21),cd%(9),ct%(9)
+33010 dim cv%(21,5),rp%(21),ro%(21),cd%(9),ct%(9),ck%(1)
 33015 dim cp%(100),pf%(11),hp%(11),rc%(90),ai%(3)
 33020 cm%=0:s1%=0:s2%=0:al%=0:wn%=0:ww%=8
 33030 read av%,sg%,hp%,ch%,cb%,im%
