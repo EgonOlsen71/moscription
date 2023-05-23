@@ -111,9 +111,8 @@
 31610 cx%=xc%:cy%=yc%:gosub 34500:poke 646,dc%
 31620 gosub 31780:yi%=0
 31630 cy%=cy%+1:gosub 34500:print "{98}     {98}";:yi%=yi%+1:if yi%<6 then 31630
-31640 cy%=cy%+1:if cy%<25 then gosub 34500:gosub 31750
-31650 cy%=cy%-2:gosub 34500
-31660 gosub 31700
+31640 cy%=cy%-1:gosub 34500:gosub 31700
+31650 cy%=cy%+2:if cy%<25 then gosub 34500:gosub 31750
 31670 return
 
 31700 rem card part 1
