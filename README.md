@@ -8,4 +8,4 @@ If you can understand spoken german, there's a video available as well that expl
 
 The repository contains all game assets and source code. If you are interested only in the playable, pre-built version, download the d64 image from here: https://github.com/EgonOlsen71/moscription/blob/main/build/moscription_AD.d64
 
-Moscription has been written in BASIC and compiled using MOSpeed: https://github.com/EgonOlsen71/basicv2
+Moscription was written in BASIC and compiled using MOSpeed: https://github.com/EgonOlsen71/basicv2
