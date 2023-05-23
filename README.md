@@ -2,6 +2,8 @@
 
 Moscription is a deck building card game for the Commodore 64. It's an asymmetrical player vs. computer game.
 
+![screenshot.png](res%2Fscreenshot.png)
+
 Instructions on how to play can be found in-game by pressing the "h" key at (almost) any time.
 
 If you can understand spoken german, there's a video available as well that explains the basics of the game: https://youtu.be/HQf1B-NZwbc
