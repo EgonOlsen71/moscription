@@ -392,7 +392,7 @@
 
 40300 rem wait for wt% seconds (or keypress)
 40310 gosub 36080: ts=ti :gosub 50000
-40315 wt%=wt%*60
+40315 wt%=wt%*60:poke 198,0
 40320 if ti-ts>wt% then return
 40330 get a$:if a$<>"" then return
 40340 gosub 22000:goto 40320
@@ -550,7 +550,7 @@
 
 47400 rem game won from wn% (1=player, 2=ai)
 47410 md%=4:cs%=0:ci%=0
-47420 if wn%=1 then al%=al%+1:if al%>10 then al%=10
+47420 if wn%=1 then al%=al%+1
 47430 gosub 47900:if wn%=2 then return
 47432 ck%(0)=-1:ck%(1)=-1:ii%=0
 47435 for i=0 to 7:cc%=pf%(i):if cc%<1 then 47455
@@ -589,8 +589,10 @@
 47840 wn%=1:mg%=8:gosub 40000:return
 
 47900 rem set ai skill flags
+47905 if al%>10 then 47930
 47910 a%=al%*3:tp%=sk%(a%):fq=sk%(a%+1)/10:hf%=sk%(a%+2)
-47920 return 
+47920 return
+47930 tp%=tp%+3:hf%=2:return
  
 48000 rem battle, row in rw% (0 or 1), direction in dr% (-1 or 1), returns overkill in ov%
 48010 i2%=rw%*4:i2%=i2%+4:i3%=i2%+3:rem row start and end
@@ -806,7 +808,9 @@
 51830 return
 
 51900 rem "damped" ai card selection
-51910 gosub 57200:sc%=rs%:if af%=1 then gosub 57200:if rs%>sc% then rs%=sc%
+51910 gosub 57200:sc%=rs%
+51915 if af%=1 then gosub 57200:if rs%>sc% then rs%=sc%
+51918 if af%=2 then gosub 57200:if rs%<sc% then rs%=sc%
 51920 return
 
 52000 rem ai move
@@ -1022,7 +1026,7 @@
 62956 data 14,7,0
 62958 data 16,8,0
 62960 data 20,9,0
-62962 data 30,9,0
+62962 data 25,9,0
 
 63000 rem cv%(i,v) - cards (cardnumber, attribute)
 63002 rem cd%(i) - player's deck (max. 10 cards)
