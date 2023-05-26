@@ -30,7 +30,7 @@ Vorbereitung: Durch alle Karten 1-19 gehen und jeder Karte einen "Wert" geben:
 
 Wert = Damage * 2 + Hitpoints -4*(Zeichen=3)
 
-Dann über alle Werte gehen, das Minimum berechen und von jedem Wert (Minimum - 1) aubtrahieren.
+Dann über alle Werte gehen, das Minimum berechnen und von jedem Wert (Minimum - 1) aubtrahieren.
 
 Davon den "Gegenwert" berechnen:
 
