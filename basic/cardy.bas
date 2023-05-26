@@ -1,7 +1,7 @@
 0 rem Moscription by EgonOlsen71/2023
-10 poke 53280,11:poke 53281,0:poke 646,1:poke 650,128
-20 if lf%=0 then lf%=1:load "chars",8,1
-25 if lf%=1 then lf%=21:load "copy",8,1
+10 poke 53280,11:poke 53281,0:poke 646,1:poke 650,128:dn%=peek(186)
+20 if lf%=0 then lf%=1:load "chars",dn%,1
+25 if lf%=1 then lf%=21:load "copy",dn%,1
 30 gosub 19900:gosub 59000:gosub 32000:gosub 33000
 40 gosub 33500:gosub 33800:gosub 33850:gosub 58500:gosub 34000
 
