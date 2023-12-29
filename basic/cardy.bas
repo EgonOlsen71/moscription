@@ -671,8 +671,9 @@
 49550 rem check signs after attack
 49555 p0=4:p1=7:gosub 49560:p0=8:p1=11:gosub 49560:return
 49559 rem ...
-49560 for ic=p0 to p1:as%=cv%(pf%(ic),1)
-49565 if as%>9 then on as%-9 gosub 51500, 51600
+49560 for ic=p0 to p1:ph%=pf%(ic):if ph%=-1 then 49570
+49565 as%=cv%(ph%,1)
+49566 if as%>9 then on as%-9 gosub 51500, 51600
 49570 next:return
 
 49600 rem process pitchfork sign
