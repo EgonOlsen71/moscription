@@ -610,7 +610,8 @@
 48100 gosub 50200:if cb%=-1 then ov%=ov%+av%:goto 48200
 48110 as%=cv%(cb%,1):tv%=av%:gosub 49500:gosub 49900:hp%=hp%-av%:av%=tv%
 48120 if hp%<=0 then gosub 49000:ov%=ov%-hp%:goto 48200
-48130 hp%(ib%)=hp%:gosub 49300:cn%=cb%:if av%<>0 then gosub 49470
+48130 hp%(ib%)=hp%:gosub 49300:cg%=cn%:cn%=cb%:if av%<>0 then gosub 49470
+48135 cn%=cg%
 48200 ib%=ib%+p2%:if ib%<>io% and ib%<=p1% and hh%>0 then 48090
 48210 i2%=i2%+1:if i2%<=i3% then 48020
 48215 if ov%>9 then ov%=9
@@ -992,11 +993,11 @@
 60230 data -1,0,0,0,0,0
 
 61000 rem debug board setup
-61010 rem pf%(8)=9:hp%(8)=2
-61020 rem pf%(10)=1:hp%(10)=2:pf%(5)=15:hp%(5)=2
-61030 rem xc%=7:yc%=4:cn%=pf%(5):hp%=-1:gosub 30000
-61040 rem xc%=0:yc%=12:cn%=pf%(8):hp%=-1:gosub 30000
-61050 rem xc%=14:yc%=12:cn%=pf%(10):hp%=-1:gosub 30000:return
+61010 rem pf%(4)=9:hp%(4)=2
+61020 rem pf%(5)=17:hp%(5)=2:pf%(9)=10:hp%(9)=3
+61030 rem xc%=0:yc%=4:cn%=pf%(4):hp%=-1:gosub 30000
+61040 rem xc%=7:yc%=4:cn%=pf%(5):hp%=-1:gosub 30000
+61050 rem xc%=7:yc%=12:cn%=pf%(9):hp%=-1:gosub 30000:return
 
 
 62800 data "draw a new card first!"
